@@ -46,6 +46,10 @@ public class Player {
         return Bins[Bin];
     }
 
+    public int[] getBins(){
+        return Bins;
+    }
+
     public void setStoneInBin(int Bin, int Stone){
         Bins[Bin] = Stone;
     }

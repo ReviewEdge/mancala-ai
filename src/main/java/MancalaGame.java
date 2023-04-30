@@ -11,6 +11,7 @@ enum E_HEURISTICS{
     H_STONES_CLOSE_TO_MY_STORAGE,
     H_CLOSE_TO_WINNING,
     H_REDUCE_OPPONENT_POINT,
+    H_RANDOM,
     H_HUMAN;
 
     public static String ToString(E_HEURISTICS e_heuristics){
@@ -20,6 +21,9 @@ enum E_HEURISTICS{
             }
             case H_HUMAN -> {
                 return "Human";
+            }
+            case H_RANDOM -> {
+                return "(7) Random";
             }
             case H_STONE_AND_STORAGE -> {
                 return "(2) Storage Difference + Stone Difference";
@@ -52,7 +56,7 @@ public class MancalaGame {
     public static int MATCH_PER_HEURISTIC = 10;
 
     static E_HEURISTICS[] e_heuristics = {E_HEURISTICS.H_STORAGE_DIFFERENCE, E_HEURISTICS.H_STONE_AND_STORAGE, E_HEURISTICS.H_CHAIN_MOVES_PRIORITIZE,
-            E_HEURISTICS.H_STONES_CLOSE_TO_MY_STORAGE, E_HEURISTICS.H_CLOSE_TO_WINNING, E_HEURISTICS.H_REDUCE_OPPONENT_POINT};
+            E_HEURISTICS.H_STONES_CLOSE_TO_MY_STORAGE, E_HEURISTICS.H_CLOSE_TO_WINNING, E_HEURISTICS.H_REDUCE_OPPONENT_POINT, E_HEURISTICS.H_RANDOM};
 
 
 

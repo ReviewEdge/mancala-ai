@@ -1,4 +1,6 @@
 import java.util.Scanner;
+//import org.json.JSONObject;
+
 
 public class MancalaBoard {
     private final int BinNumber = MancalaGame.BIN_COUNT;
@@ -81,6 +83,21 @@ public class MancalaBoard {
         System.out.println();
     }
 
+//    public String getBoardJSON(Player CurrentPlayer) {
+//        JSONObject boardJSON = new JSONObject();
+//        boardJSON.put("1-s", CurrentPlayer.getOpponent().GetPlayerStorage());
+//        for(int Counter = CurrentPlayer.getOpponent().getBins().length - 1; Counter >= 0; Counter--){
+//            boardJSON.put("1-"+(Counter+1), CurrentPlayer.getOpponent().getBins()[Counter]);
+//        }
+//
+//        boardJSON.put("2-s", CurrentPlayer.GetPlayerStorage());
+//        for(int Counter = CurrentPlayer.getOpponent().getBins().length - 1; Counter >= 0; Counter--){
+//            boardJSON.put("2-"+(Counter+1), CurrentPlayer.getOpponent().getBins()[Counter]);
+//        }
+//
+//        return boardJSON.toString();
+//    }
+
     public MancalaBoard Clone(){
         MancalaBoard mancalaGame = new MancalaBoard();
 
@@ -120,7 +137,9 @@ public class MancalaBoard {
             Scanner scanner = new Scanner(System.in);
             int Move = scanner.nextInt();
             BinChosen = Move - 1;
-        }else{
+        } else if (player.getHeuristics() == E_HEURISTICS.H_RANDOM) {
+            BinChosen = AI.generateRandomMove(gameStatus, BinNumber, CurrentMove);
+        } else{
             MancalaBoard cloned = this.Clone();
             AI ai = new AI(player.ClonePlayer(), cloned);
             BinChosen = ai.GenerateMove();
@@ -228,6 +247,8 @@ public class MancalaBoard {
         while (!gameStatus.GameOver()){
             if(!bNoPrint){
                 PrintGameBoard(CurrentMove);
+
+//                System.out.println(getBoardJSON(CurrentMove)); //TODO: delete me
 
                 if(bMoveAgain){
                     System.out.println(CurrentMove.getPlayerName() + " Moves Again");

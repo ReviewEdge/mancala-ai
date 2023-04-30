@@ -48,6 +48,15 @@ public class AI {
         return -1;
     }
 
+    public static int generateRandomMove(GameStatus gameStatus, int bins, Player mover) {
+        Random rand = new Random();
+        int tryMove = rand.nextInt(6) + 1;
+        while (gameStatus.IllegalMove(tryMove, bins, mover)) {
+            tryMove = rand.nextInt(6) + 1;
+        }
+        return tryMove;
+    }
+
     private SearchResult AlphaBeta(MancalaBoard mancalaGame, int Alpha, int Beta, boolean bMaximizing, int Depth){
 
         if(mancalaGame.IsGameOver() || Depth == 0){
