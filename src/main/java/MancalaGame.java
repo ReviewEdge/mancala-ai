@@ -28,7 +28,7 @@ public class MancalaGame {
                 mancalaGame.GameLoop();
             } else if (choice2 == 2) {
                 for (int i = 0; i < e_heuristics.length; i++) {//player 1
-                    for (int j = i; j < e_heuristics.length; j++) {//player 2
+                    for (int j = 0; j < e_heuristics.length; j++) {//player 2
 
                         for (int k = 0; k < MATCH_PER_HEURISTIC; k++) {//, trials deterministic, only needs one game, same every time
                             System.out.println("--- matchup H" + (i+1) + " vs H" + (j+1) + " ---");
@@ -50,7 +50,6 @@ public class MancalaGame {
 
         } else {
             System.out.println("Not a valid choice");
-            return;
         }
     }
 
