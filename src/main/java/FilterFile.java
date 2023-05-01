@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class FilterFile {
     public static void main(String[] args) {
         String inputFile = "C:\\Users\\RICHARDSONLG20\\IdeaProjects\\mancala-ai\\src\\main\\java\\results.txt";
-        String outputFile = "output2.txt";
+        String outputFile = "output3.txt";
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
