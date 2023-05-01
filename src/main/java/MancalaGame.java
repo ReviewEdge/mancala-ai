@@ -47,10 +47,11 @@ public class MancalaGame {
                 System.out.println("Not a valid choice");
             }
 
-
         } else {
             System.out.println("Not a valid choice");
         }
+        System.out.println("\n\n\nType 1 to exit.");
+        scanner.nextInt();
     }
 
 

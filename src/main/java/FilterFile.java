@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class FilterFile {
     public static void main(String[] args) {
-        String inputFile = "C:\\Users\\RICHARDSONLG20\\IdeaProjects\\mancala-ai\\src\\main\\java\\results.txt";
-        String outputFile = "output3.txt";
+        String inputFile = "input.txt";
+        String outputFile = "output.txt";
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
@@ -20,7 +20,7 @@ public class FilterFile {
                 old.add(line);
                 if (line.matches(".*--- matchup H\\d+ vs H\\d+ ---.*")) {
                     keep = true;
-                } else if (line.contains("Won")) {
+                } else if (line.contains("Won") || line.contains("Tie")) {
                     keep = true;
                         for (int i = old.size()-4; i > old.size()-9; i--) {
                             String prevLine = old.get(i);
